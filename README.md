@@ -42,3 +42,19 @@ A solução será divida nos seguintes projetos:
 
 - **Commits:** O histórico seguirá o padrão *Conventional Commits* (ex.: `feat:`, `fix:`, `docs:`).
 - **Testes:** Regras de negócio do Core devem ser cobertas por testes unitários antes da implementação da API.
+
+## Escopo do MVP (Minimun Viable Product)
+
+Para garantir o foco nos conceitos fundamentais e viabilizar a entrega, o MVP contempla:
+
+1. **Usuários:**
+   - Cadastro, login e perfil de autorização via *Role* (`Admin` e `UsuarioComum`).
+2. **Postagens (Herança):**
+   - `Postagem` (Classe abstrata base)
+   - `PostagemTexto` (Conteúdo puramente textual)
+   - `PostagemMidia` (Conteúdo textual + URL de mídia)
+3. **Interações:**
+   - Comentários simples vinculados à postagem.
+   - Curtidas vinculadas exclusivamente à postagem.
+
+*Fora do Escopo MVP:* Curtidas em comentários, respostas encadeadas e redefinição de senha.
