@@ -34,7 +34,7 @@ public sealed class UsuarioTests
         const string senha = "gabriel123";
 
         // Act&Assert - Ação a ser executada dentro da afirmação
-        var exception = Assert.Throws<UsuarioException>(() =>
+        var exception = Assert.Throws<CoreException>(() =>
         {
             new Usuario(nomeEsperado!, emailEsperado, senha);
         });
