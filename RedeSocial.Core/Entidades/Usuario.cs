@@ -34,14 +34,14 @@ public class Usuario
     {
         // Avalia se a string é nula ou só contém espaços vazios
         if (string.IsNullOrWhiteSpace(senha))
-            throw new UsuarioException("A senha do usuário não pode ser nula ou estar vazia!");
+            throw new CoreException("A senha do usuário não pode ser nula ou estar vazia!");
 
         // Remove espaços adicionas que o usuário possa ter colocado
         senha = senha.Trim();
 
         // Testa, através da propriedade Length da string, se a quantidade de letras (neste caso dentro de senha) é menor que o mínimo aceitável
         if (senha.Length < MINIMO_TAMANHO_SENHA)
-            throw new UsuarioException(
+            throw new CoreException(
                 $"A senha do usuário precisa conter no mínimo {MINIMO_TAMANHO_SENHA} caracteres!");
 
         HashSenha = senha;
@@ -50,13 +50,13 @@ public class Usuario
     private void ValidarEmail(string email)
     {
         if (string.IsNullOrWhiteSpace(email))
-            throw new UsuarioException("O email do usuário não pode ser nulo ou estar vazio!");
+            throw new CoreException("O email do usuário não pode ser nulo ou estar vazio!");
 
         email = email.Trim();
 
         // Regex procura por um padrão dentro de uma string e se achar, retorna TRUE devido o IsMatch. Neste caso, se o usuário enviar um e-mail válido, ele vai retornar TRUE, mas o ! antes da palavra Regex faz o valor verdadeiro se torna falso. Ou seja, ele irá pegar os emails que não são válidos.
         if (!Regex.IsMatch(email, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", RegexOptions.IgnoreCase))
-            throw new UsuarioException("O email do usuário está inválido!");
+            throw new CoreException("O email do usuário está inválido!");
 
         Email = email;
     }
@@ -64,15 +64,15 @@ public class Usuario
     private void ValidarNome(string nome)
     {
         if (string.IsNullOrWhiteSpace(nome))
-            throw new UsuarioException("O nome do usuário não pode ser nulo ou estar vazio!");
+            throw new CoreException("O nome do usuário não pode ser nulo ou estar vazio!");
 
         nome = nome.Trim();
 
         if (Regex.IsMatch(nome, "/[^A-Za-zÀ-ÿ\\s]/gm", RegexOptions.IgnoreCase))
-            throw new UsuarioException("O nome do usuário possui caracteres inválidos!");
+            throw new CoreException("O nome do usuário possui caracteres inválidos!");
 
         if (nome.Length < MINIMO_TAMANHO_NOME)
-            throw new UsuarioException($"O nome do usuário deve conter no mínimo {MINIMO_TAMANHO_NOME} caracteres!");
+            throw new CoreException($"O nome do usuário deve conter no mínimo {MINIMO_TAMANHO_NOME} caracteres!");
 
         Nome = nome;
     }

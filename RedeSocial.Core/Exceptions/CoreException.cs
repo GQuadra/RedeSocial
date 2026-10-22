@@ -1,13 +1,13 @@
 ﻿namespace RedeSocial.Core.Exceptions;
 
-public class PostagemException : Exception
+public class CoreException : Exception
 {
-    public PostagemException()
+    public CoreException()
     {
     }
 
     // Metodo construtor que recebe uma mensagem e passa adiante para a classe Pai
-    public PostagemException(string message) : base(message)
+    public CoreException(string message) : base(message)
     {
     }
 }

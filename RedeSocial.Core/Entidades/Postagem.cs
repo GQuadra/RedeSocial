@@ -29,7 +29,7 @@ public class Postagem
     private void ValidarConteudo(string conteudo)
     {
         if (string.IsNullOrWhiteSpace(conteudo))
-            throw new PostagemException("O conteudo da postagem não pode ser nulo ou estar vazio!");
+            throw new CoreException("O conteudo da postagem não pode ser nulo ou estar vazio!");
 
         Conteudo = conteudo;
     }
