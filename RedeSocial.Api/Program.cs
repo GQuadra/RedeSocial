@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 var stringConexao = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddMySql<ApiContexto>(stringConexao, ServerVersion.AutoDetect(stringConexao));
 
 var app = builder.Build();
