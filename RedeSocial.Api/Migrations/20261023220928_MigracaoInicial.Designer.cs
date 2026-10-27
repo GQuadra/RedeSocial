@@ -10,7 +10,7 @@ using RedeSocial.Api.Dados;
 
 namespace RedeSocial.Api.Migrations
 {
-    [DbContext(typeof(ApiContexto))]
+    [DbContext(typeof(DbContexto))]
     [Migration("20261023220928_MigracaoInicial")]
     partial class MigracaoInicial
     {
